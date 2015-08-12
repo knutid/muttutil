@@ -101,10 +101,11 @@ if __name__=="__main__":
 
 	cp = ConfigParser()
 	cp.read(os.path.expanduser('~/.offlineimaprc'))
-	server = cp.get('Repository %s' % account_name, 'remotehost')
-	port = cp.get('Repository %s' % account_name, 'remoteport')
-	username = cp.get('Repository %s' % account_name, 'remoteuser')
-	password = cp.get('Repository %s' % account_name, 'remotepass')
+        remote_repository = cp.get('Account %s' % account_name, 'remoterepository') 
+	server = cp.get('Repository %s' % remote_repository, 'remotehost')
+	port = cp.get('Repository %s' % remote_repository, 'remoteport')
+	username = cp.get('Repository %s' % remote_repository, 'remoteuser')
+	password = cp.get('Repository %s' % remote_repository, 'remotepass')
 
 	spinner = IdleSpinner(server, username, password)
 
