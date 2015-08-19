@@ -78,7 +78,7 @@ last_full = datetime.datetime(2000,1,1,0,0,0)
 def full_sync():
 	global last_full, account_name
 	print "Running full sync"
-	subprocess.call(['offlineimap', '-a', account_name, '-o', '-u', 'Noninteractive.Basic'])
+	subprocess.call(['offlineimap', '-a', account_name, '-o', '-u', 'basic'])
 	last_full = datetime.datetime.now()
 
 def quick_sync():
@@ -87,7 +87,7 @@ def quick_sync():
 	# only syncing a single folder, after all)
 	global account_name
 	print "Running quick sync"
-	subprocess.call(['offlineimap', '-a', account_name, '-o', '-f', 'INBOX', '-u', 'Noninteractive.Basic'])
+	subprocess.call(['offlineimap', '-a', account_name, '-o', '-f', 'INBOX', '-u', 'basic'])
 
 
 # Basic operation: spinner controls inbox pull every <n> seconds, or when IDLE
